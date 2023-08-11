@@ -25,7 +25,7 @@ public class GamePanel extends JPanel implements ActionListener {
   GamePanel() {
     random = new Random();
     this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
-    this.setBackground(Color.black);
+    this.setBackground(Color.green);
     this.setFocusable(true);
     this.addKeyListener(new MykeyAdapter());
     startGame();
@@ -55,10 +55,10 @@ public class GamePanel extends JPanel implements ActionListener {
 
       for (int i = 0; i < bodyParts; i++) {
         if (i == 0) {
-          g.setColor(Color.green);
+          g.setColor(Color.YELLOW);
           g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
         } else {
-          g.setColor(new Color(44, 180, 0));
+          g.setColor(Color.ORANGE);
           g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
         }
       }
