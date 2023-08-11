@@ -164,21 +164,25 @@ public class GamePanel extends JPanel implements ActionListener {
     public void keyPressed(KeyEvent e) {
       switch (e.getKeyCode()) {
         case KeyEvent.VK_LEFT:
+        case KeyEvent.VK_A:
           if (direciton != 'R') {
             direciton = 'L';
           }
           break;
         case KeyEvent.VK_RIGHT:
+        case KeyEvent.VK_D:
           if (direciton != 'L') {
             direciton = 'R';
           }
           break;
         case KeyEvent.VK_UP:
+        case KeyEvent.VK_W:
           if (direciton != 'D') {
             direciton = 'U';
           }
           break;
         case KeyEvent.VK_DOWN:
+        case KeyEvent.VK_S:
           if (direciton != 'U') {
             direciton = 'D';
           }
@@ -186,5 +190,4 @@ public class GamePanel extends JPanel implements ActionListener {
       }
     }
   }
-
 }
