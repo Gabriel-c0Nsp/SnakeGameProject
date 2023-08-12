@@ -3,3 +3,4 @@ src/GameFrame.class
 src/GamePanel$MykeyAdapter.class
 src/GamePanel.class
 src/SnakeGame.class
+RunJava.sh
