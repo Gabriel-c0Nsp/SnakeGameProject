@@ -81,6 +81,18 @@ public class GamePanel extends JPanel implements ActionListener {
     for (int i = bodyParts; i > 0; i--) {
       x[i] = x[i - 1];
       y[i] = y[i - 1];
+      // check if screen overflow
+      if (x[0] < 0) {
+        x[0] = SCREEN_WIDTH - UNIT_SIZE;
+      } else if (x[0] >= SCREEN_WIDTH) {
+        x[0] = 0;
+      }
+
+      if (y[0] < 0) {
+        y[0] = SCREEN_HEIGHT - UNIT_SIZE;
+      } else if (y[0] >= SCREEN_HEIGHT) {
+        y[0] = 0;
+      }
     }
     switch (direciton) {
       case 'U':
@@ -114,35 +126,20 @@ public class GamePanel extends JPanel implements ActionListener {
       }
     }
 
-    // overflow screen (left border side)
-    if (x[0] < 0) {
-      running = false;
-    }
-    // overflow screen (right border side)
-    if (x[0] > SCREEN_WIDTH) {
-      running = false;
-    }
-    // overflow screen (top border)
-    if (y[0] < 0) {
-      running = false;
-    }
-    // overflow screen (bottom border)
-    if (y[0] > SCREEN_HEIGHT) {
-      running = false;
-    }
-
     if (running == false) {
       timer.stop();
     }
   }
 
-  public void gameOver(Graphics g) {
+  public void showScore(Graphics g) {
     g.setColor(Color.white);
     g.setFont(new Font("Roboto", Font.BOLD, 40));
     FontMetrics metrics1 = getFontMetrics(g.getFont());
     g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics1.stringWidth("Score: " + applesEaten)) / 2,
         g.getFont().getSize());
+  }
 
+  public void gameOver(Graphics g) {
     g.setColor(Color.red);
     g.setFont(new Font("Roboto", Font.BOLD, 75));
     FontMetrics metrics2 = getFontMetrics(g.getFont());
